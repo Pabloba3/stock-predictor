@@ -1,0 +1,2 @@
+v1.0.0 - Primera versión estable del sistema de predicción de stock
+Fecha: 2025-03-22

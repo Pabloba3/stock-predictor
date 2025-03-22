@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    command: uvicorn api_modelo:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - API_KEY=${API_KEY}
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+
+  streamlit:
+    build: .
+    command: streamlit run app_inferencia.py
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+      - API_KEY=${API_KEY}
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 

@@ -1,0 +1,16 @@
+# Entornos virtuales
+venv/
+.env
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pkl
+
+# Streamlit
+.streamlit/
+
+# Archivos temporales
+*.zip
+*.csv
+.DS_Store
